@@ -25,14 +25,18 @@
 <body>
     <h1>理综各科成绩计算器</h1>
     <h2>2022陕西高考理综成绩字符串解析</h2>
-    <p>如果你还没有以下两个字符串，请打开陕西招生考试信息网，进入“2022年高考成绩各科各题得分查询入口”查询，或者
-        <a href="https://www.sneac.edu.cn/pzcjweb/cjcx/zfcindex.jsp">点击此处直接进入查询</a> 。
+    <p>如果你还没有以下两项信息，请打开陕西招生考试信息网，进入“2022年高考成绩各科各题得分查询入口”查询，或者
+        <a href="https://www.sneac.edu.cn/pzcjweb/cjcx/zfcindex.jsp">懒的话点这里也能打开官方查分网站</a> 。
     </p>
-    <span>查到的这个项目【理综选择题作答字符串】内容原文复制</span>
-    <textarea id="str1" placeholder="是你的选择题选项序列！类似于A,B,C,D,E这一长串！别把题号/总分放进来！"></textarea>
     <br>
-    <span>查到的这个项目【理综非选择题各题得分字符串】内容原文复制</span>
-    <textarea id="str2" placeholder="是你的非选择题得分序列！类似于10.0,9.0,8.0这一长串！别把题号/总分放进来！"></textarea>
+    <h3>理综选择题作答字符串</h3>
+    <p>示例：A,B,C,D,A,B,C,D,A,B,C,D<br>是你的选择题选项序列！别把题号/总分放进来！</p>
+    <textarea id="str1" placeholder=""></textarea>
+    <br>
+    <h3>理综非选择题各题得分字符串</h3>
+
+    <p>示例：10.0,9.0,8.0,7.0,6.0,5.0<br>是你的非选择题得分序列！别把题号/总分放进来！</p>
+    <textarea id="str2" placeholder=""></textarea>
     <br>
     <button onclick="resolve()">点击计算各科得分</button>
     <p id="result" style="color: red;"></p>
@@ -54,7 +58,7 @@
                 if (i < 6) { bio += 6; }
                 else if (i < 13) { che += 6; }
                 else { phy += 6; }
-            } else if (key[i].match(arr1[i])) {
+            } else if (arr1[i] && key[i].match(arr1[i])) {
                 phy += 3;
 
             }
@@ -70,7 +74,7 @@
             else { bio += parseFloat(arr2[i]); }
             console.log(i + 1, phy, che, bio);
         }
-        document.getElementById("result").innerHTML = "你的物理得分为：" + phy + "，化学得分为：" + che + "，生物得分为：" + bio + "。<br>你的理综总分为：" + (phy + che + bio) + "。"
+        document.getElementById("result").innerHTML = isNaN(phy) ? "你一定填错了什么信息，仔细阅读一下要求。" : "物理：" + phy + "，化学：" + che + "，生物：" + bio + "。<br>理综总分：" + (phy + che + bio) + "。";
     }
 </script>
 
