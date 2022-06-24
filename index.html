@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        textarea {
+            display: block;
+            width: 30em;
+            height: 4em;
+            word-break: break-all;
+        }
+    </style>
+    <title>陕西高考成绩字符串解析工具</title>
+</head>
+
+<body>
+    <h1>成绩字符串解析工具</h1>
+    <h2>2022陕西高考理综分科计算</h2>
+    <p>一定要粘贴完整，否则无法识别</p>
+    <span>选择题作答字符串</span>
+    <textarea id="str1" placeholder="选择题作答字符串"></textarea>
+    <br>
+    <span>非选择题各题得分字符串</span>
+    <textarea id="str2" placeholder="非选择题各题得分字符串"></textarea>
+    <br>
+    <button onclick="resolve()">解析</button>
+    <p id="result" style="color: red;"></p>
+    <div style="height: 15em;"></div>
+    <a href="https://github.com/L33Z22L11/StrRsv-SNCEE">Github仓库（源代码）</a>
+    <p>野生技协QQ交流群：894656456</p>
+    <small style="color: grey;">由纸鹿编写，联系QQ：2399052066。</small>
+</body>
+<script>
+    var arr1, arr2, phy, che, bio;
+    var key = ["D", "D", "B", "C", "A", "C", "B", "D", "A", "C", "D", "C", "B", "C", "A", "C", "B", "BC", "AB", "AD", "BD"];
+    function resolve() {
+        arr1 = document.getElementById("str1").value.split(",");
+        arr2 = document.getElementById("str2").value.split(",");
+        phy = 0, che = 0, bio = 0;
+        for (i = 0; i < 21; i++) {
+            if (key[i] == arr1[i]) {
+                if (i < 6) { bio += 6; }
+                else if (i < 13) { che += 6; }
+                else { phy += 6; }
+            } else if (key[i].match(arr1[i])) {
+                phy += 3;
+
+            }
+            console.log(i + 1, phy, che, bio);
+        }
+        console.log("选择题得分", phy + che + bio)
+        for (i = 0; i < 19; i++) {
+            if (i < 4) { phy += parseFloat(arr2[i]); }
+            else if (i < 7) { che += parseFloat(arr2[i]); }
+            else if (i < 11) { bio += parseFloat(arr2[i]); }
+            else if (i < 15) { phy += parseFloat(arr2[i]); }
+            else if (i < 17) { che += parseFloat(arr2[i]); }
+            else { bio += parseFloat(arr2[i]); }
+            console.log(i + 1, phy, che, bio);
+        }
+        document.getElementById("result").innerHTML = "您的物理得分为：" + phy + "，化学得分为：" + che + "，生物得分为：" + bio + "。<br>你的理综总分为：" + (phy + che + bio) + "。"
+    }
+</script>
+
+</html>
