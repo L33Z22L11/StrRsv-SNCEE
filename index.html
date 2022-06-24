@@ -23,18 +23,18 @@
 </head>
 
 <body>
-    <h1>成绩字符串解析工具</h1>
-    <h2>2022陕西高考理综分科计算</h2>
-    <p>一定要粘贴完整，否则无法识别</p>
-    <span>选择题作答字符串</span>
+    <h1>成绩字符串解析</h1>
+    <h2>2022陕西高考理综各科成绩辅助计算工具</h2>
+    <p>如果你还没有以下两个字符串，请打开陕西招生考试信息网，在“2022年高考成绩各科各题得分查询入口”里查询，或者<a href="https://www.sneac.edu.cn/pzcjweb/cjcx/zfckssr.jsp">点击此处直接进入查询</a>。我们不会储存任何信息。</p>
+    <span>理综选择题作答字符串</span>
     <textarea id="str1" placeholder="选择题作答字符串"></textarea>
     <br>
-    <span>非选择题各题得分字符串</span>
+    <span>理综非选择题各题得分字符串</span>
     <textarea id="str2" placeholder="非选择题各题得分字符串"></textarea>
     <br>
-    <button onclick="resolve()">解析</button>
+    <button onclick="resolve()">点击计算各科得分</button>
     <p id="result" style="color: red;"></p>
-    <div style="height: 15em;"></div>
+    <div style="height: 10em;"></div>
     <a href="https://github.com/L33Z22L11/StrRsv-SNCEE">Github仓库（源代码）</a>
     <p>野生技协QQ交流群：894656456</p>
     <small style="color: grey;">由纸鹿编写，联系QQ：2399052066。</small>
@@ -67,7 +67,7 @@
             else { bio += parseFloat(arr2[i]); }
             console.log(i + 1, phy, che, bio);
         }
-        document.getElementById("result").innerHTML = "您的物理得分为：" + phy + "，化学得分为：" + che + "，生物得分为：" + bio + "。<br>你的理综总分为：" + (phy + che + bio) + "。"
+        document.getElementById("result").innerHTML = "你的物理得分为：" + phy + "，化学得分为：" + che + "，生物得分为：" + bio + "。<br>你的理综总分为：" + (phy + che + bio) + "。"
     }
 </script>
 
