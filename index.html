@@ -25,19 +25,22 @@
 <body>
     <h1>成绩字符串解析</h1>
     <h2>2022陕西高考理综各科成绩辅助计算工具</h2>
-    <p>如果你还没有以下两个字符串，请打开陕西招生考试信息网，在“2022年高考成绩各科各题得分查询入口”里查询，或者<a href="https://www.sneac.edu.cn/pzcjweb/cjcx/zfckssr.jsp">点击此处直接进入查询</a>。我们不会储存任何信息。</p>
+    <p>如果你还没有以下两个字符串，请打开陕西招生考试信息网，进入“2022年高考成绩各科各题得分查询入口”查询，或者
+        <a href="https://www.sneac.edu.cn/pzcjweb/cjcx/zfckssr.jsp">点击此处直接进入查询</a> 。
+    </p>
     <span>理综选择题作答字符串</span>
-    <textarea id="str1" placeholder="选择题作答字符串"></textarea>
+    <textarea id="str1" placeholder="是你的选择题选项序列！类似于A,B,C,D,E这一长串！别把题号/总分放进来！"></textarea>
     <br>
     <span>理综非选择题各题得分字符串</span>
-    <textarea id="str2" placeholder="非选择题各题得分字符串"></textarea>
+    <textarea id="str2" placeholder="是你的非选择题得分序列！类似于10.0,9.0,8.0这一长串！别把题号/总分放进来！"></textarea>
     <br>
     <button onclick="resolve()">点击计算各科得分</button>
     <p id="result" style="color: red;"></p>
     <div style="height: 10em;"></div>
-    <a href="https://github.com/L33Z22L11/StrRsv-SNCEE">Github仓库（源代码）</a>
+    <p>我们不会储存任何信息。</p>
+    <a href="https://github.com/L33Z22L11/StrRsv-SNCEE">Github L33Z22L11/StrRsv-SNCEE</a>
     <p>野生技协QQ交流群：894656456</p>
-    <small style="color: grey;">由纸鹿编写，联系QQ：2399052066。</small>
+    <small style="color: grey;">© 纸鹿 （QQ 2399052066）</small>
 </body>
 <script>
     var arr1, arr2, phy, che, bio;
