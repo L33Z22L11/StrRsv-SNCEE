@@ -15,6 +15,7 @@
         textarea {
             display: block;
             width: 30em;
+            max-width: 90vw;
             height: 4em;
             word-break: break-all;
         }
@@ -31,12 +32,12 @@
     <br>
     <h3>理综选择题作答字符串</h3>
     <p>示例：A,B,C,D,A,B,C,D,A,B,C,D<br>是你的选择题选项序列！别把题号/总分放进来！</p>
-    <textarea id="str1" placeholder=""></textarea>
+    <textarea id="str1"></textarea>
     <br>
     <h3>理综非选择题各题得分字符串</h3>
 
     <p>示例：10.0,9.0,8.0,7.0,6.0,5.0<br>是你的非选择题得分序列！别把题号/总分放进来！</p>
-    <textarea id="str2" placeholder=""></textarea>
+    <textarea id="str2"></textarea>
     <br>
     <button onclick="resolve()">点击计算各科得分</button>
     <p id="result" style="color: red;"></p>
